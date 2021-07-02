@@ -1,8 +1,8 @@
-export default class ExchangeRates {
+export default class Exchange {
 
-  getCodes(response) {
+  codes(response) {
     if (response.result === "success") {
-      return codes = reponse.supported_codes;
+      return response.supported_codes;
     }
     else {
       return `There was an error: ${response.error}`;
