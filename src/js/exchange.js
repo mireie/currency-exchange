@@ -7,9 +7,14 @@ export default class Exchange {
     this.input = input;
   }
 
-  convert() {
-    const rateResponse = ExchangeService.getPair(this.base, this.target);
-    let rate = rateResponse.conversion_rate;
-    return this.input * rate;
+  async convert() {
+    try {
+      const rateResponse = await ExchangeService.getPair(this.base, this.target);
+      const rate = rateResponse.conversion_rate;
+      const conversion = this.input * rate;
+      return conversion;
+    } catch(error) {
+      return error.message;
+    }
   }
 }

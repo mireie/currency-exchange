@@ -18,42 +18,21 @@ function getCodes(response) {
   }
 }
 
-// function convert(base, target, input) {
-//   let rate = apiPair(base, target);
-//   let userInput = new Exchange(base, target, rate, input);
-//   return userInput.convert();
-// }
-
-// function getConversion(response) {
-//   if (response.result === "success") {
-//     return response.conversion_rate;
-
-//   } else {
-//     $('.showErrors').text(`There was an error: ${response.error}`);
-//     $('.showErrors').slideToggle();
-
-//   }
-// }
-
 async function apiCodes() {
   const response = await ExchangeService.getCodes();
   getCodes(response);
 }
 
-// async function apiPair(base, target) {
-//   const response = await ExchangeService.getPair(base, target);
-//   getConversion(response);
-// }
 
 $(document).ready(() => {
   apiCodes();
-  $('#submit').click((event) => {
+  $('#submit').click(async (event) => {
     event.preventDefault();
     let base = $('#currency-selector-base').val();
     let target = $('#currency-selector-target').val();
     let input = $('#currency-input').val();
     let userInput = new Exchange(base, target, input);
-    let conversion = userInput.convert();
+    let conversion = await userInput.convert();
     $('#output').text(`${conversion}`);
   });
 });
