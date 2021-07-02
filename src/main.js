@@ -23,6 +23,13 @@ function getCodes(response) {
   }
 }
 
+function showIfHidden() {
+  const div = document.getElementById("output-card");
+  if (window.getComputedStyle(div).display === "none") {
+    $('#output-card').fadeToggle();
+  }
+}
+
 $(document).ready(() => {
   apiCodes();
   $('#submit').click(async (event) => {
@@ -32,6 +39,7 @@ $(document).ready(() => {
     let input = $('#currency-input').val();
     let userInput = new Exchange(base, target, input);
     let conversion = await userInput.convert();
+    showIfHidden();
     $('#output').text(`${conversion.toFixed(2)} ${userInput.target}`);
     $('#cs-base').text(`${input} ${userInput.base}`);
     $('#cs-target').text(`${conversion.toFixed(2)} ${userInput.target}`);

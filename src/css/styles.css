@@ -38,6 +38,6 @@ body {
   display: block;
   padding-bottom: 1.25rem;
 }
-.output-card {
-  
+#output-card, .showErrors {
+  display:none;
 }
