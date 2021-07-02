@@ -5,7 +5,8 @@ import './css/styles.css';
 import {ExchangeService} from './js/exchangeService';
 
 $(document).ready(()=> {
-  $()
+  let currencyCodes = getCodes();
+  console.log(currencyCodes);
 })
 
 
