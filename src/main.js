@@ -24,7 +24,7 @@ function getCodes(response) {
 }
 
 function errorCheck(input) {
-  if(input.codeCheck !=true) {
+  if (input.codeCheck != true) {
     $('.showErrors').text(`That currency is not supported.`);
     $('.showErrors').slideToggle();
   }
