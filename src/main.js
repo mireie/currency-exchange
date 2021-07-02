@@ -7,7 +7,11 @@ import ExchangeService from './js/exchangeService.js';
 
 function getCodes(response) {
   if(response.result ==="success") {
-    console.log(response);
+    let codeArray = response.supported_codes;
+    codeArray.forEach(element => {
+      $('#currency-selector-from').append(`<option value="${element[0]}">${element[0]} - ${element[1]}</option>`)
+      $('#currency-selector-to').append(`<option value="${element[0]}">${element[0]} - ${element[1]}</option>`)
+    });
   }
 }
 

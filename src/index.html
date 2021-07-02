@@ -19,9 +19,18 @@
       <div class="col">
         <h2>Input</h2>
         <form>
-          <input type="number" name="currency-input" id="currency-input">
-          <select name="currency-selector" id="currency-selector"></select>
-          <button type="submit" id="submit">Get Rates</button>
+          <div class="form-group">
+            <input class = "form-control" type="number" name="currency-input" id="currency-input">
+          </div>
+          <div class="form-group">
+            <label for="currency-selector-from">Convert from:</label>
+            <select class="form-control" name="currency-selector-from" id="currency-selector-from"></select>
+          </div>
+          <div class="form-group">
+            <label for="currency-selector-to">Convert to:</label>
+            <select class="form-control" name="currency-selector-to" id="currency-selector-to"></select>
+          </div>
+          <button type="submit" id="submit">Get Conversion</button>
         </form>
       </div>
       <div class="col">
