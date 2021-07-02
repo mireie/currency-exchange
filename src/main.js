@@ -32,6 +32,9 @@ $(document).ready(() => {
     let input = $('#currency-input').val();
     let userInput = new Exchange(base, target, input);
     let conversion = await userInput.convert();
-    $('#output').text(`${conversion.toFixed(2)}`);
+    $('#output').text(`${conversion.toFixed(2)} ${userInput.target}`);
+    $('#cs-base').text(`${input} ${userInput.base}`);
+    $('#cs-target').text(`${conversion.toFixed(2)} ${userInput.target}`);
+    $('#cs-rate').text(`${userInput.rate}`);
   });
 });

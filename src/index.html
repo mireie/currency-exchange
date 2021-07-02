@@ -10,25 +10,25 @@
 
 <body>
   <div class="container">
-    <div class="row ">
-      <div class="col-md-6 inputs m-3">
+    <div class="row conversion">
+      <div class="col-lg-6 inputs m-3">
         <div class="row">
           <div class="col form-group">
             <label for="currency-selector-base">
-              <h2>Base Currency</h2>
+              <h3>Base Currency</h3>
             </label>
             <select class="form-control" name="currency-selector-base" id="currency-selector-base"></select>
           </div>
           <div class="col form-group">
             <label for="currency-selector-target">
-              <h2>Target Currency</h2>
+              <h3>Target Currency</h3>
             </label>
             <select class="form-control" name="currency-selector-target" id="currency-selector-target"></select>
           </div>
         </div>
         <div class="row submit-row">
+          <h3 id="convert-title">Amount to convert:</h3>
           <div class="col-8 form-group">
-            <h2>Amount to convert:</h2>
             <input class="form-control" type="number" name="currency-input" id="currency-input">
           </div>
           <div class="col" id="btn-container">
@@ -38,14 +38,21 @@
       </div>
       <div class="col mt-3 mb-3">
         <div class="row">
-          <span id="output"></span>
           <div class="col">
-            <div class="card">
+            <div class="card output-card">
               <div class="card-header">
-                <h2>Conversion</h2>
+                <h3>Conversion</h3>
               </div>
               <div class="card-body">
-                <p class="display-4">x in y is w in z</p>
+                <span class="display-4" id="output"></span>
+                <div class="card-header">
+                  Conversion Stats
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><strong>Base Currency: <span id="cs-base"></span></strong> </li>
+                  <li class="list-group-item"><strong>Target Currency: <span id="cs-target"></span></strong> </li>
+                  <li class="list-group-item"><strong>Conversion Rate: <span id="cs-rate"></span></strong> </li>
+                </ul>
               </div>
             </div>
           </div>

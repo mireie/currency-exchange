@@ -12,6 +12,7 @@ export default class Exchange {
       const rateResponse = await ExchangeService.getPair(this.base, this.target);
       const rate = rateResponse.conversion_rate;
       const conversion = this.input * rate;
+      this.rate = rate;
       return conversion;
     } catch(error) {
       return error.message;
