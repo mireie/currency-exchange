@@ -1,7 +1,12 @@
 export default class Exchange {
-  constructor(name, code) {
-    name = this.name;
-    code = this.code;
+  constructor(base, target, rate, input) {
+    this.base = base;
+    this.target = target;
+    this.rate = rate;
+    this.input = input;
+  }
+
+  convert() {
+    return this.input * this.rate;
   }
 }
-
