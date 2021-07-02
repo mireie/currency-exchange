@@ -1,2 +1,26 @@
-/*Pallate ["1c7c54","73e2a7","def4c6","1b512d","b1cf5f"]
+/*Palette ["1c7c54","73e2a7","def4c6","1b512d","b1cf5f"]
 */
+
+body {
+  background-color: #def4c6;
+}
+.inputs {
+  background-color: #1c7c54;
+  border: solid #1b512d .5rem;
+  color:#def4c6;
+}
+.btn {
+  background-color: #B1CF5F;
+  color:#1c7c54;
+  padding: .5rem 1rem;
+  margin:auto;
+  margin-bottom:1rem;
+  width:100%;
+  font-weight:bold;
+}
+#btn-container {
+  justify-content: right;
+}
+.submit-row {
+  align-items: flex-end;
+}

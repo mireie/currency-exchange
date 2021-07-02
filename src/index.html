@@ -10,32 +10,46 @@
 
 <body>
   <div class="container">
-    <div class="row" class="showErrors">
-      <div class="col" id="error">
-
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <h2>Input</h2>
-        <form>
-          <div class="form-group">
-            <input class="form-control" type="number" name="currency-input" id="currency-input">
-          </div>
-          <div class="form-group">
-            <label for="currency-selector-base">Base Currency:</label>
+    <div class="row ">
+      <div class="col-md-6 inputs m-3">
+        <div class="row">
+          <div class="col form-group">
+            <label for="currency-selector-base">
+              <h2>Base Currency</h2>
+            </label>
             <select class="form-control" name="currency-selector-base" id="currency-selector-base"></select>
           </div>
-          <div class="form-group">
-            <label for="currency-selector-target">Convert to:</label>
+          <div class="col form-group">
+            <label for="currency-selector-target">
+              <h2>Target Currency</h2>
+            </label>
             <select class="form-control" name="currency-selector-target" id="currency-selector-target"></select>
           </div>
-          <button type="submit" id="submit">Get Conversion</button>
-        </form>
+        </div>
+        <div class="row submit-row">
+          <div class="col-8 form-group">
+            <h2>Amount to convert:</h2>
+            <input class="form-control" type="number" name="currency-input" id="currency-input">
+          </div>
+          <div class="col" id="btn-container">
+            <button class="btn btn-success" type="submit" id="submit">Convert</button>
+          </div>
+        </div>
       </div>
-      <div class="col">
-        <h2>Output</h2>
-        <span id="output"></span>
+      <div class="col mt-3 mb-3">
+        <div class="row">
+          <span id="output"></span>
+          <div class="col">
+            <div class="card">
+              <div class="card-header">
+                <h2>Conversion</h2>
+              </div>
+              <div class="card-body">
+                <p class="display-4">x in y is w in z</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
