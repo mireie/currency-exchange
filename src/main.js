@@ -23,6 +23,13 @@ function getCodes(response) {
   }
 }
 
+function errorCheck(input) {
+  if(input.codeCheck !=true) {
+    $('.showErrors').text(`That currency is not supported.`);
+    $('.showErrors').slideToggle();
+  }
+}
+
 function showIfHidden() {
   const div = document.getElementById("output-card");
   if (window.getComputedStyle(div).display === "none") {
@@ -38,6 +45,7 @@ $(document).ready(() => {
     let target = $('#currency-selector-target').val();
     let input = $('#currency-input').val();
     let userInput = new Exchange(base, target, input);
+    errorCheck(userInput);
     let conversion = await userInput.convert();
     showIfHidden();
     $('#output').text(`${conversion.toFixed(2)} ${userInput.target}`);

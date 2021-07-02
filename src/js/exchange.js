@@ -14,7 +14,28 @@ export default class Exchange {
       const conversion = this.input * rate;
       this.rate = rate;
       return conversion;
-    } catch(error) {
+    } catch (error) {
+      return error.message;
+    }
+  }
+  async codeCheck() {
+    try {
+      const rateResponse = await ExchangeService.getCodes();
+      let baseMatch = -1;
+      let targetMatch = -1;
+      rateResponse.forEach((element) => {
+        if (this.base === element) {
+          baseMatch = 1;
+        }
+        if (this.target === element) {
+          targetMatch = 1;
+        }
+      });
+      if (baseMatch != 1 || targetMatch != 1) {
+        return true;
+      }
+
+    } catch (error) {
       return error.message;
     }
   }
