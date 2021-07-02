@@ -1,12 +1,15 @@
+import ExchangeService from './exchangeService.js';
+
 export default class Exchange {
-  constructor(base, target, rate, input) {
+  constructor(base, target, input) {
     this.base = base;
     this.target = target;
-    this.rate = rate;
     this.input = input;
   }
 
   convert() {
-    return this.input * this.rate;
+    const rateResponse = ExchangeService.getPair(this.base, this.target);
+    let rate = rateResponse.conversion_rate;
+    return this.input * rate;
   }
 }
