@@ -5,6 +5,11 @@ import './css/styles.css';
 import ExchangeService from './js/exchangeService.js';
 import Exchange from './js/exchange.js';
 
+async function apiCodes() {
+  const response = await ExchangeService.getCodes();
+  getCodes(response);
+}
+
 function getCodes(response) {
   if (response.result === "success") {
     let codeArray = response.supported_codes;
@@ -17,12 +22,6 @@ function getCodes(response) {
     $('.showErrors').slideToggle();
   }
 }
-
-async function apiCodes() {
-  const response = await ExchangeService.getCodes();
-  getCodes(response);
-}
-
 
 $(document).ready(() => {
   apiCodes();
