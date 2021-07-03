@@ -17,29 +17,35 @@ function getCodes(response) {
       $('#currency-selector-base').append(`<option value="${element[0]}">${element[0]} - ${element[1]}</option>`);
       $('#currency-selector-target').append(`<option value="${element[0]}">${element[0]} - ${element[1]}</option>`);
     });
+    $('#currency-selector-base').append(`<option value="BREAK ME">NO CODE (For Testing)</option>`);
   } else {
     $('.showErrors').text(`There was an error: ${response.error}`);
     $('.showErrors').slideToggle();
   }
 }
 
-function errorCheck(input) {
-  if (input.codeCheck != true) {
+async function errorCheck(input) {
+  if (await input.codeCheck() != true) {
     $('.showErrors').text(`That currency is not supported.`);
     $('.showErrors').slideToggle();
   }
 }
 
-function showIfHidden() {
+function showIfHidden(conversion) {
   const div = document.getElementById("output-card");
   if (window.getComputedStyle(div).display === "none") {
     $('#output-card').fadeToggle();
+  }
+  if (isNaN(conversion)) {
+    $('#output-card').hide();
+
   }
 }
 
 $(document).ready(() => {
   apiCodes();
   $('#submit').click(async (event) => {
+    $('.showErrors').hide();
     event.preventDefault();
     let base = $('#currency-selector-base').val();
     let target = $('#currency-selector-target').val();
@@ -47,7 +53,7 @@ $(document).ready(() => {
     let userInput = new Exchange(base, target, input);
     errorCheck(userInput);
     let conversion = await userInput.convert();
-    showIfHidden();
+    showIfHidden(conversion);
     $('#output').text(`${conversion.toFixed(2)} ${userInput.target}`);
     $('#cs-base').text(`${input} ${userInput.base}`);
     $('#cs-target').text(`${conversion.toFixed(2)} ${userInput.target}`);

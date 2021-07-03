@@ -23,15 +23,17 @@ export default class Exchange {
       const rateResponse = await ExchangeService.getCodes();
       let baseMatch = -1;
       let targetMatch = -1;
-      rateResponse.forEach((element) => {
-        if (this.base === element) {
+      rateResponse.supported_codes.forEach((element) => {
+        if (this.base === element[0]) {
           baseMatch = 1;
         }
-        if (this.target === element) {
+        if (this.target === element[0]) {
           targetMatch = 1;
         }
       });
       if (baseMatch != 1 || targetMatch != 1) {
+        return false;
+      } else {
         return true;
       }
 
