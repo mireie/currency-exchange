@@ -20,4 +20,4 @@ jobs:
         with:
           branch: gh-pages 
           folder: dist
-          process.env: ${{secrets.ENV}}
+          API_KEY: ${{secrets.API_KEY}}
