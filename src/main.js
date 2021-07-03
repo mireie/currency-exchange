@@ -17,7 +17,7 @@ function getCodes(response) {
       $('#currency-selector-base').append(`<option value="${element[0]}">${element[0]} - ${element[1]}</option>`);
       $('#currency-selector-target').append(`<option value="${element[0]}">${element[0]} - ${element[1]}</option>`);
     });
-    $('#currency-selector-base').append(`<option value="BREAK ME">NO CODE (For Testing)</option>`);
+    $('#currency-selector-base').append(`<option value="BREAK ME">NO CODE (For Code Review Testing)</option>`);
   } else {
     $('.showErrors').text(`There was an error: ${response.error}`);
     $('.showErrors').slideToggle();
